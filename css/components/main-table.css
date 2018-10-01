@@ -1,0 +1,6 @@
+.main-table {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 150px;
+
+}

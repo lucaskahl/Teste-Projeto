@@ -1,3 +1,8 @@
 body {
     font-family: 'Open sans', sans-serif;
 }
+
+table {
+    display: table;
+    border-color: var(--primary-color);
+}
