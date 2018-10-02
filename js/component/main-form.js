@@ -9,27 +9,40 @@ TODO
 
 */
 
-const name = document.querySelector('#name');
+const nome = document.querySelector('#name');
 const email = document.querySelector('#email');
 const cpf = document.querySelector('#cpf');
 const telefone = document.querySelector('#telefone');
 const formEl = document.querySelector('.main-form');
 
-cpf.addEventListener("keypress", e => {
-    console.log(e);
-    if ((e.keyCode >= 48 && e.keyCode <= 57)) { 
-        console.log('numbers');
-    }else{
-        cpf.classList.add('')
-    }
-})
-
+name.value = "111";
 
 formEl.addEventListener('submit', ev => {
     ev.preventDefault();
-    console.log('submitado');
+    addData();
 
 });
+
+function getValues() {
+
+    var user = {
+        "name": nome.value,
+        "email": email.value,
+        "cpf": cpf.value,
+        "telefone": telefone.value,
+    };
+
+    return user;
+
+}
+
+function addData() {
+
+    let users = [getValues()];
+
+    localStorage.setItem("users", JSON.stringify(users));
+
+}
 
 
 

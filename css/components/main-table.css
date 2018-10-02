@@ -1,10 +1,30 @@
+table {
+    border-collapse: collapse;
+    border-spacing: 2px;
+}
+
 .main-table {
     padding-left: 30%;
 
 }
 
-.main-table th, td  {
-    margin-left: 35px;
-    padding-left: 20px;
-    text-align: center;
+.main-table th, .main-table td  {
+    padding: 0.75rem;
+    vertical-align: top;
+    border-top: 1px solid #dee2e6;
+}
+
+.main-table th {
+    color: #fff;
+    background-color: var(--primary-color);
+    border-color: #ffff;
+    border-bottom: 1px solid rgb(0, 0, 0, 0.2);
+    padding-right: 1.5rem;
+    padding-left: 1.5rem;
+    padding-top: .75rem;    
+    padding-bottom: .75rem;
+    letter-spacing: 1px;
+    font-size: .72rem;
+    text-transform: uppercase;
+    font-weight: 600;
 }

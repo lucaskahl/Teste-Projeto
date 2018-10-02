@@ -6,6 +6,10 @@
   font-size: 14px;
 }
 
+.input-error {
+  
+}
+
 .-error {
   color: #ee5253;
 }
