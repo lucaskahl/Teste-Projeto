@@ -1,6 +1,10 @@
 .main-table {
-    display: flex;
-    flex-wrap: wrap;
-    padding: 150px;
+    padding-left: 30%;
 
+}
+
+.main-table th, td  {
+    margin-left: 35px;
+    padding-left: 20px;
+    text-align: center;
 }
