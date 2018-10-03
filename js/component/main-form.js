@@ -42,7 +42,7 @@ function addData() {
 
     user.push(getValues());
 
-    let users = [user];
+    let users = user;
 
     localStorage.setItem("users", JSON.stringify(users));
 
