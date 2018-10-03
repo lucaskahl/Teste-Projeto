@@ -38,7 +38,11 @@ function getValues() {
 
 function addData() {
 
-    let users = [getValues()];
+    let user = JSON.parse(localStorage.getItem("users"));
+
+    user.push(getValues());
+
+    let users = [user];
 
     localStorage.setItem("users", JSON.stringify(users));
 
