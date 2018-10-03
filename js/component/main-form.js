@@ -4,8 +4,8 @@
 
 TODO
 
-1- Validar campo do formulario
-2- Adicionar css
+1- Arrumar .push se for vazio
+2- Listar na table [...]
 
 */
 
@@ -37,6 +37,8 @@ function getValues() {
 }
 
 function addData() {
+
+
 
     let user = JSON.parse(localStorage.getItem("users"));
 
