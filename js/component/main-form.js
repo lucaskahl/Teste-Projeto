@@ -39,9 +39,8 @@ function getValues() {
 function addData() {
 
 
-
     let user = JSON.parse(localStorage.getItem("users"));
-
+    user || [];
     user.push(getValues());
 
     let users = user;
@@ -50,6 +49,38 @@ function addData() {
 
 }
 
+function getUsersAPI() {
+
+    let getUsers = fetch('https://private-21e8de-rafaellucio.apiary-mock.com/users');
+    let user = [];
+    let users = {};
+
+    getUsers
+    .then(data => data.json())
+    .then(data => data.forEach(u => {
+
+        users = {
+            "nome": u.name,
+            "cpf": u.cpf,
+            "phone": u.phone,
+            "email": u.email,
+        }
+        
+        if(localStorage.getItem("usersAPI")) {
+            let localUser = {};
+
+            localUser = JSON.parse(localStorage.getItem("usersAPI"));
+            user.push(localUser);
+            console.log(user);
+        }
+
+        if(!localStorage.getItem("usersAPI")) {
+            localStorage.setItem("usersAPI", JSON.stringify(user));
+        }
+
+    }));
+  
+}
 
 
 
