@@ -3,10 +3,6 @@
 /*
 
 TODO
-
-1- Arrumar .push se for vazio
-2- Listar na table [...]
-
 */
 
 const nome = document.querySelector('#name');
@@ -15,21 +11,30 @@ const cpf = document.querySelector('#cpf');
 const telefone = document.querySelector('#telefone');
 const formEl = document.querySelector('.main-form');
 
-name.value = "111";
-
 formEl.addEventListener('submit', ev => {
     ev.preventDefault();
+
+    
+
+    validaCampos();
     addData();
 
 });
 
+function validaCampos() {
+
+    // TO DO
+
+
+}
+
 function getValues() {
 
-    var user = {
+    let user = {
         "name": nome.value,
-        "email": email.value,
         "cpf": cpf.value,
-        "telefone": telefone.value,
+        "email": email.value,
+        "phone": telefone.value,
     };
 
     return user;
@@ -38,56 +43,30 @@ function getValues() {
 
 function addData() {
 
+    let user = getValues();
+    let users = getUsersDb();
 
-    let user = JSON.parse(localStorage.getItem("users"));
-    user || [];
-    user.push(getValues());
-
-    let users = user;
-
+    users.push(user);
     localStorage.setItem("users", JSON.stringify(users));
 
 }
 
-function getUsersAPI() {
+function setUsers() {
 
-    let getUsers = fetch('https://private-21e8de-rafaellucio.apiary-mock.com/users');
-    let user = [];
+    if(!localStorage.getItem("users")) {
+        
+        fetch('https://private-21e8de-rafaellucio.apiary-mock.com/users')
+        .then(data => data.json())
+        .then(data => data.map(u => {
+            return u;
+        }))
+        .then(u => {
+            localStorage.setItem("users", JSON.stringify(u));
+        });
+    }
 
-    getUsers.then(data => data.json())
-    .then(data => data.forEach(u => {
-        users = {
-            "nome": u.name,
-            "cpf": u.cpf,
-            "phone": u.phone,
-            "email": u.email,
-        }
-        user.push(users);
+};
 
-    }));
-
-
-
-
-      /*  if(localStorage.getItem("users")) {
-            
-            pegar variavel e guardar
-            variavel + 1
-            e continua
-            
-            let localUser = JSON.parse(localStorage.getItem("users"));
-            console.log(localUser);
-        }
-
-        if(!localStorage.getItem("users")) {
-            let user = [];
-            user.push(users);
-            localStorage.setItem("users", JSON.stringify(user));
-        }
-        */
-
-  
-}
 
 
 
