@@ -28,3 +28,7 @@ table {
     text-transform: uppercase;
     font-weight: 600;
 }
+
+.main-table-error {
+    border-bottom: 1px solid #eb4a46 !important;
+}

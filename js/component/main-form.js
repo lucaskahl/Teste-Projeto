@@ -14,18 +14,24 @@ const formEl = document.querySelector('.main-form');
 formEl.addEventListener('submit', ev => {
     ev.preventDefault();
 
-    
-
-    validaCampos();
-    addData();
+    validateCpf()
+    //addData();
 
 });
-
-function validaCampos() {
-
-    // TO DO
-
-
+// cpf e telefone por event listener
+function validateCpf() {
+    if(cpf.value == "") {
+        cpf.classList.add("main-table-error");
+        createMsgError("O seu CPF deve ter 11 dígitos.", ".cpf");
+    }else if(nome.value == ""){
+        createMsgError("O seu nome não pode estar vazío", ".nome");
+    }else if(email.value == ""){
+        createMsgError("Parece que o seu email está incorreto.", ".email");
+    }else if(telefone.value == "") {
+        createMsgError("O campo de telefone deve ter 9 digitos", ".telefone");
+    }else{
+        console.log('perr');
+    }
 }
 
 function getValues() {
@@ -50,6 +56,14 @@ function addData() {
     localStorage.setItem("users", JSON.stringify(users));
 
 }
+
+function createMsgError(content, type) {
+    let $mainError = document.querySelector(type);
+  
+    $mainError.classList.add("main-msg", "-error");
+    $mainError.textContent = content;
+  
+  }
 
 function setUsers() {
 
